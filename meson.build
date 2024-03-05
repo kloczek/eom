@@ -1,5 +1,5 @@
 project('eom','c',
-  version: '1.27.1',
+  version: '1.28.0',
   meson_version: '>=0.59.0',
   license: 'GPLv2+',
 )
@@ -52,6 +52,9 @@ all_deps = [
   gdk_pixbuf, shared_mime_info, libpeas, libpeas_gtk,
   xml, gobject_introspection, xmp, exif, rsvg,
 ]
+
+m = cc.find_library('m', required : false)
+all_deps += [m]
 
 z = dependency('zlib')
 assert(cc.has_function('crc32', dependencies: [z]), 'zlib do not have crc32')
